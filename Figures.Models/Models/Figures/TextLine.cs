@@ -5,8 +5,8 @@ namespace Figures.Models.Models.Figures
 {
     public class TextLine : GraphicModel, ISizable, ITextStylesModel
     {
-        public TextLine(PointModel position, ColorModel color, SizeModel size, TextStylesModel textStyles) 
-            : base(position, color)
+        public TextLine(PointModel position, SizeModel size, TextStylesModel textStyles) 
+            : base(position)
         {
             Size = size;
             TextStyles = textStyles;

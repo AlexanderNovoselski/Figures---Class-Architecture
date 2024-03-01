@@ -5,7 +5,7 @@ namespace Figures.Models.Models.Figures
 {
     public class RoundedRectangle : Rectangle, IRadius
     {
-        public RoundedRectangle(PointModel position, ColorModel color, SizeModel size, BorderModel border, RadiusModel radiusModel, ZIndexModel zIndex)
+        public RoundedRectangle(PointModel position, ColorModel color, SizeModel size, BorderModel border, ZIndexModel zIndex, RadiusModel radiusModel)
             : base(position, color, size, border, zIndex)
         {
             RadiusModel = radiusModel;

@@ -2,6 +2,6 @@
 {
     public interface IGUIItems
     {
-
+        void DrawAll(/*List<IGraphicalModel> objects*/);
     }
 }

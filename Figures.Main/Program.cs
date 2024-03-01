@@ -1,4 +1,5 @@
-﻿using Figures.Models.Contracts.Helper.Shapes;
+﻿using Figures.Models.Contracts.Figures;
+using Figures.Models.Contracts.Helper.Shapes;
 using Figures.Models.Enums;
 using Figures.Models.Models.Figures;
 using Figures.Models.Models.HelperModels.Shapes;
@@ -9,22 +10,39 @@ namespace MyApp
     {
         static void Main(string[] args)
         {
-            PointModel position = new PointModel(10, 20);
-            SizeModel size = new SizeModel(30, 40);
-            ColorModel color = new ColorModel("da");
-            BorderModel border = new BorderModel();
-            ZIndexModel zIndex = new ZIndexModel(1);
-            RadiusModel radius = new RadiusModel(RadiusType.Corner);
+            PointModel positionRectangle = new PointModel(10, 20);
+            ColorModel colorRectangle = new ColorModel("red");
+            SizeModel sizeRectangle = new SizeModel(30, 40);
+            BorderModel borderRectangle = new BorderModel();
+            ZIndexModel zIndexRectangle = new ZIndexModel(17);
 
-            var rectangle = new Rectangle(position, color, size, border, zIndex);
-            RoundedRectangle roundedRectangle = new RoundedRectangle(position, color, size, border, radius, zIndex);
-            
-            rectangle.Color.SetColor("blue");
+            Rectangle rectangle = new Rectangle(positionRectangle, colorRectangle, sizeRectangle, borderRectangle, zIndexRectangle);
+
             Console.WriteLine(rectangle.Color.ColorName);
-            Console.WriteLine(roundedRectangle.RadiusModel.RadiusType);
-
             rectangle.Draw();
+
+            //
+
+            PointModel positionrRoundedRectangle = new PointModel(10, 20);
+            ColorModel colorRoundedRectangle = new ColorModel("blue");
+            SizeModel sizeRoundedRectangle = new SizeModel(30, 40);
+            BorderModel borderRoundedRectangle = new BorderModel();
+            ZIndexModel zIndexRoundedRectangle = new ZIndexModel(3);
+            RadiusModel radiusRoundedRectangle = new RadiusModel(RadiusType.Corner);
+
+            RoundedRectangle roundedRectangle = new RoundedRectangle(positionrRoundedRectangle, colorRoundedRectangle, sizeRoundedRectangle, borderRoundedRectangle, zIndexRoundedRectangle, radiusRoundedRectangle);
+            
+            Console.WriteLine(roundedRectangle.RadiusModel.RadiusType);
+            Console.WriteLine(roundedRectangle.Color.ColorName);
+
+            roundedRectangle.Color.SetColor("black");
+
+            Console.WriteLine(roundedRectangle.Color.ColorName);
+
             roundedRectangle.Draw();
+
+            //
+
 
             PointModel startPosition = new PointModel(10, 20);
             PointModel endPosition = new PointModel(30, 40);
@@ -35,11 +53,39 @@ namespace MyApp
 
             line.Draw();
 
-            //PointModel positionImage = new PointModel(10, 20);
-            //ColorModel colorLineImage = new ColorModel("black");
-            //BorderModel borderLineImage = new BorderModel(3, LineType.Single);
-            //SizeModel sizeImage = new SizeModel(30, 40);
-            //Image image = new Image(positionImage, colorLineImage, borderLine, size);
+            //
+
+            PointModel positionImage = new PointModel(10, 20);
+            BorderModel borderLineImage = new BorderModel(3, LineType.Single);
+            SizeModel sizeImage = new SizeModel(30, 40);
+            Image image = new Image(positionImage, borderLineImage, sizeImage);
+
+            image.Draw();
+
+            //
+
+            PointModel positionText = new PointModel(10, 20);
+            SizeModel sizeText = new SizeModel(30, 40);
+            TextStylesModel textStyle = new TextStylesModel("Arial", 25);
+            TextLine text = new TextLine(positionText, sizeText, textStyle);
+
+            text.Draw();
+
+            Console.WriteLine("brrr");
+            Console.WriteLine();
+
+            List<IGraphicalModel> initialModels = new List<IGraphicalModel>{
+                text,
+                image,
+                roundedRectangle,
+                line,
+                rectangle,
+            };
+            IDrawingModel models = new DrawingModels(initialModels);
+            GUIItems items = new GUIItems(models);
+
+            items.DrawAll();
+
         }
     }
 }   

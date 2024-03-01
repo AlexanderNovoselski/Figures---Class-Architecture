@@ -2,7 +2,7 @@
 
 namespace Figures.Models.Contracts.Helper.Shapes
 {
-    public interface IColor
+    public interface IColorible
     {
         ColorModel Color { get; }
     }

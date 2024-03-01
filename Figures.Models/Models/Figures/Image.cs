@@ -5,8 +5,8 @@ namespace Figures.Models.Models.Figures
 {
     public class Image : GraphicModel, ISizable, IBorder
     {
-        public Image(PointModel position, ColorModel color, BorderModel border, SizeModel size) 
-            : base(position, color)
+        public Image(PointModel position, BorderModel border, SizeModel size) 
+            : base(position)
         {
             Border = border;
             Size = size;
