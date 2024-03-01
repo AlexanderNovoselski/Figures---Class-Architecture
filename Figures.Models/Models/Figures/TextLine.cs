@@ -1,5 +1,6 @@
 ﻿using Figures.Models.Contracts.Helper.Shapes;
 using Figures.Models.Models.HelperModels.Shapes;
+using System.Runtime.CompilerServices;
 
 namespace Figures.Models.Models.Figures
 {

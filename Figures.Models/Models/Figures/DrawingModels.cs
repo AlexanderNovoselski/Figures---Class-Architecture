@@ -5,6 +5,7 @@ namespace Figures.Models.Models.Figures
 {
     public class DrawingModels : IDrawingModel
     {
+
         public DrawingModels()
         {
             InitializeLists();
@@ -31,8 +32,8 @@ namespace Figures.Models.Models.Figures
         {
             return GetAllObjects()
                 .OfType<IZIndex>()
-                .Cast<IGraphicalModel>()
                 .Where(x => x is IZIndex)
+                .Cast<IGraphicalModel>()
                 .ToList();
         }
 

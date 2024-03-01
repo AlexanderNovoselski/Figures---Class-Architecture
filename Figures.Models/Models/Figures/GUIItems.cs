@@ -18,7 +18,6 @@ namespace Figures.Models.Models.Figures
             var objectsWithZIndex = model.GetAllObjectsWithZIndex();
             var objectsWithoutZIndex = model.GetAllObjectsWithoutZIndex();
 
-
             // DrawObjects(firstThird);
             var firstThird = objectsWithoutZIndex.ToList().Count / 3; // TODO kakvo pravq ako sa 2 elementa samo, .. risuvam gi i 2ta v kraq?
             var firstThirdList = objectsWithoutZIndex.Take(firstThird).ToList();
@@ -53,10 +52,10 @@ namespace Figures.Models.Models.Figures
 
                 foreach (var graphicalModel in copyList)
                 {
-                    var currentIndex = (graphicalModel as IZIndex)?.ZIndex;
-                    var lowestIndex = (lowestZIndexModel as IZIndex)?.ZIndex;
+                    var currentIndex = (graphicalModel as IZIndex)?.ZIndex.ZIndex;
+                    var lowestIndex = (lowestZIndexModel as IZIndex)?.ZIndex.ZIndex;
 
-                    if (currentIndex.ZIndex < lowestIndex.ZIndex)
+                    if (currentIndex < lowestIndex)
                     {
                         lowestZIndexModel = graphicalModel;
                     }

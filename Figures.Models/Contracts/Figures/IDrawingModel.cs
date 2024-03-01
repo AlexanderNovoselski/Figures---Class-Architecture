@@ -7,5 +7,7 @@ namespace Figures.Models.Contracts.Figures
         List<IGraphicalModel> GetAllObjectsWithZIndex();
 
         List<IGraphicalModel> GetAllObjectsWithoutZIndex();
+
+        void AddObjectTo(IGraphicalModel graphicalModel);
     }
 }

@@ -82,6 +82,7 @@ namespace MyApp
                 rectangle,
             };
             IDrawingModel models = new DrawingModels(initialModels);
+            models.AddObjectTo(text);
             GUIItems items = new GUIItems(models);
 
             items.DrawAll();
