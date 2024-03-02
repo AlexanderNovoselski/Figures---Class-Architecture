@@ -1,6 +1,4 @@
-﻿using Figures.Models.Contracts.Helper.Shapes;
-
-namespace Figures.Models.Contracts.Figures
+﻿namespace Figures.Models.Contracts.Figures
 {
     public interface IDrawingModel
     {

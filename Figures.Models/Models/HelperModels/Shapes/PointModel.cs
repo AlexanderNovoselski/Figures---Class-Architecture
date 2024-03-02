@@ -20,6 +20,14 @@
         public void SetPoint(int x, int y)
         {
             // Validations
+            if(x < 0)
+            {
+                _x = 0;
+            }
+            if(y < 0)
+            {
+                _y = 0;
+            }
             _x = x;
             _y = y;
         }

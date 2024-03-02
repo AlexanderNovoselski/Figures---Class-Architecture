@@ -19,6 +19,14 @@
         public void SetSize(int width, int height)
         {
             // Validations
+            if(width < 0)
+            {
+                _width = 1;
+            }
+            if (height < 0)
+            {
+                _height = 1;
+            }
             _width = width;
             _height = height;
         }

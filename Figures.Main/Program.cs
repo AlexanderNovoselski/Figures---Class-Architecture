@@ -1,5 +1,4 @@
 ﻿using Figures.Models.Contracts.Figures;
-using Figures.Models.Contracts.Helper.Shapes;
 using Figures.Models.Enums;
 using Figures.Models.Models.Figures;
 using Figures.Models.Models.HelperModels.Shapes;
@@ -31,7 +30,7 @@ namespace MyApp
             RadiusModel radiusRoundedRectangle = new RadiusModel(RadiusType.Corner);
 
             RoundedRectangle roundedRectangle = new RoundedRectangle(positionrRoundedRectangle, colorRoundedRectangle, sizeRoundedRectangle, borderRoundedRectangle, zIndexRoundedRectangle, radiusRoundedRectangle);
-            
+
             Console.WriteLine(roundedRectangle.RadiusModel.RadiusType);
             Console.WriteLine(roundedRectangle.Color.ColorName);
 
@@ -71,7 +70,8 @@ namespace MyApp
 
             text.Draw();
 
-            Console.WriteLine("brrr");
+            Console.WriteLine();
+            Console.WriteLine("---");
             Console.WriteLine();
 
             List<IGraphicalModel> initialModels = new List<IGraphicalModel>{
@@ -89,4 +89,4 @@ namespace MyApp
 
         }
     }
-}   
+}
