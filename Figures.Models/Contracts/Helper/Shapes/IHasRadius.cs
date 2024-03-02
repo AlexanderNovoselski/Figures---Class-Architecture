@@ -2,8 +2,8 @@
 
 namespace Figures.Models.Contracts.Helper.Shapes
 {
-    public interface IBorder
+    public interface IHasRadius
     {
-        BorderModel Border { get; }
+        RadiusModel RadiusModel { get; }
     }
 }

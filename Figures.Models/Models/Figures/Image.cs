@@ -3,7 +3,7 @@ using Figures.Models.Models.HelperModels.Shapes;
 
 namespace Figures.Models.Models.Figures
 {
-    public class Image : GraphicModel, ISizable, IBorder
+    public class Image : GraphicModel, ISizable, IHasBorder
     {
         public Image(PointModel position, BorderModel border, SizeModel size) 
             : base(position)

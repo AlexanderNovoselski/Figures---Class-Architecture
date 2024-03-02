@@ -2,8 +2,8 @@
 
 namespace Figures.Models.Contracts.Helper.Shapes
 {
-    public interface IZIndex
+    public interface IHasBorder
     {
-        ZIndexModel ZIndex { get; }
+        BorderModel Border { get; }
     }
 }

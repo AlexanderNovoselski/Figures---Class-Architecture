@@ -3,7 +3,7 @@ using Figures.Models.Models.HelperModels.Shapes;
 
 namespace Figures.Models.Models.Figures
 {
-    public class Rectangle : GraphicModel, ISizable, IBorder, IZIndex, IColorible
+    public class Rectangle : GraphicModel, ISizable, IHasBorder, IHasZIndex, IColorible
     {
 
         public Rectangle(PointModel position, ColorModel color, SizeModel size, BorderModel border, ZIndexModel zIndex)

@@ -2,8 +2,8 @@
 
 namespace Figures.Models.Contracts.Helper.Shapes
 {
-    public interface IRadius
+    public interface IHasZIndex
     {
-        RadiusModel RadiusModel { get; }
+        ZIndexModel ZIndex { get; }
     }
 }

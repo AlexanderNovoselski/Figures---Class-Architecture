@@ -52,8 +52,8 @@ namespace Figures.Models.Models.Figures
 
                 foreach (var graphicalModel in copyList)
                 {
-                    var currentIndex = (graphicalModel as IZIndex)?.ZIndex.ZIndex;
-                    var lowestIndex = (lowestZIndexModel as IZIndex)?.ZIndex.ZIndex;
+                    var currentIndex = (graphicalModel as IHasZIndex)?.ZIndex.ZIndex;
+                    var lowestIndex = (lowestZIndexModel as IHasZIndex)?.ZIndex.ZIndex;
 
                     if (currentIndex < lowestIndex)
                     {

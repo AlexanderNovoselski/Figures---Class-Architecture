@@ -31,15 +31,15 @@ namespace Figures.Models.Models.Figures
         public List<IGraphicalModel> GetAllObjectsWithZIndex()
         {
             return GetAllObjects()
-                .OfType<IZIndex>()
-                .Where(x => x is IZIndex)
+                .OfType<IHasZIndex>()
+                .Where(x => x is IHasZIndex)
                 .Cast<IGraphicalModel>()
                 .ToList();
         }
 
         public List<IGraphicalModel> GetAllObjectsWithoutZIndex()
         {
-            return GetAllObjects().Where(x => x is not IZIndex).ToList();
+            return GetAllObjects().Where(x => x is not IHasZIndex).ToList();
         }
 
         private List<IGraphicalModel> GetAllObjects()
