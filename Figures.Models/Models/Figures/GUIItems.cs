@@ -1,7 +1,5 @@
 ﻿using Figures.Models.Contracts.Figures;
 using Figures.Models.Contracts.Helper.Shapes;
-using Figures.Models.Models.HelperModels.Shapes;
-using System.Collections.Generic;
 
 namespace Figures.Models.Models.Figures
 {
@@ -18,8 +16,7 @@ namespace Figures.Models.Models.Figures
             var objectsWithZIndex = model.GetAllObjectsWithZIndex();
             var objectsWithoutZIndex = model.GetAllObjectsWithoutZIndex();
 
-            // DrawObjects(firstThird);
-            var firstThird = objectsWithoutZIndex.ToList().Count / 3; // TODO kakvo pravq ako sa 2 elementa samo, .. risuvam gi i 2ta v kraq?
+            var firstThird = objectsWithoutZIndex.ToList().Count / 3;
             var firstThirdList = objectsWithoutZIndex.Take(firstThird).ToList();
 
             DrawObjects(firstThirdList);

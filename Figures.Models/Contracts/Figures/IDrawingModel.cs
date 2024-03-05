@@ -6,6 +6,6 @@
 
         List<IGraphicalModel> GetAllObjectsWithoutZIndex();
 
-        void AddObjectTo(IGraphicalModel graphicalModel);
+        void AddObjectToList(IGraphicalModel graphicalModel);
     }
 }

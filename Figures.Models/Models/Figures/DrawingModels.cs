@@ -5,6 +5,7 @@ namespace Figures.Models.Models.Figures
 {
     public class DrawingModels : IDrawingModel
     {
+        private List<IGraphicalModel> AllObjects { get; set; }
 
         public DrawingModels()
         {
@@ -14,23 +15,12 @@ namespace Figures.Models.Models.Figures
         public DrawingModels(List<IGraphicalModel> initialModels)
         {
             InitializeLists();
-
-            foreach (var model in initialModels)
-            {
-                AddObjectTo(model);
-            }
+            AddObjects(initialModels);
         }
-
-        private List<Rectangle> Rectangles { get; set; }
-        private List<RoundedRectangle> RoundedRectangles { get; set; }
-        private List<Line> Lines { get; set; }
-        private List<Image> Images { get; set; }
-        private List<TextLine> TextLines { get; set; }
-        private List<object> OtherGraphicObjects { get; set; }
 
         public List<IGraphicalModel> GetAllObjectsWithZIndex()
         {
-            return GetAllObjects()
+            return AllObjects
                 .OfType<IHasZIndex>()
                 .Where(x => x is IHasZIndex)
                 .Cast<IGraphicalModel>()
@@ -39,67 +29,29 @@ namespace Figures.Models.Models.Figures
 
         public List<IGraphicalModel> GetAllObjectsWithoutZIndex()
         {
-            return GetAllObjects().Where(x => x is not IHasZIndex).ToList();
+            return AllObjects.Where(x => !(x is IHasZIndex)).ToList();
         }
 
-        private List<IGraphicalModel> GetAllObjects()
-        {
-            var allObjects = new List<IGraphicalModel>();
-            allObjects.AddRange(Rectangles);
-            allObjects.AddRange(RoundedRectangles);
-            allObjects.AddRange(Lines);
-            allObjects.AddRange(Images);
-            allObjects.AddRange(TextLines);
-            allObjects.AddRange(OtherGraphicObjects.OfType<IGraphicalModel>());
-            return allObjects;
-        }
-
-
-        public void AddObjectTo(IGraphicalModel graphicalModel)
+        public void AddObjectToList(IGraphicalModel graphicalModel)
         {
             try
             {
-                if (graphicalModel is Rectangle rectangle)
-                {
-                    Rectangles.Add(rectangle);
-                }
-                else if (graphicalModel is RoundedRectangle roundedRectangle)
-                {
-                    RoundedRectangles.Add(roundedRectangle);
-                }
-                else if (graphicalModel is Line line)
-                {
-                    Lines.Add(line);
-                }
-                else if (graphicalModel is Image image)
-                {
-                    Images.Add(image);
-                }
-                else if (graphicalModel is TextLine textLine)
-                {
-                    TextLines.Add(textLine);
-                }
-                else
-                {
-                    OtherGraphicObjects.Add(graphicalModel);
-                }
+                AllObjects.Add(graphicalModel);
             }
             catch (Exception e)
             {
                 Console.WriteLine(e);
             }
+        }
 
+        public void AddObjects(List<IGraphicalModel> graphicalModels)
+        {
+            AllObjects.AddRange(graphicalModels);
         }
 
         private void InitializeLists()
         {
-            Rectangles = new List<Rectangle>();
-            RoundedRectangles = new List<RoundedRectangle>();
-            Lines = new List<Line>();
-            Images = new List<Image>();
-            TextLines = new List<TextLine>();
-            OtherGraphicObjects = new List<object>();
+            AllObjects = new List<IGraphicalModel>();
         }
     }
-
 }

@@ -14,8 +14,8 @@
             _x = x;
             _y = y;
         }
-        public int X { get => _x; }
-        public int Y { get => _y; }
+        public int X => _x;
+        public int Y => _y; 
 
         public void SetPoint(int x, int y)
         {
