@@ -20,11 +20,20 @@ namespace Figures.Models.Models.Figures
 
         public List<IGraphicalModel> GetAllObjectsWithZIndex()
         {
-            return AllObjects
-                .OfType<IHasZIndex>()
-                .Where(x => x is IHasZIndex)
-                .Cast<IGraphicalModel>()
-                .ToList();
+            var zIndexList = new List<IGraphicalModel>();
+            foreach (var item in AllObjects)
+            {
+                var type = item.GetType();
+                var interfaceType = typeof(IHasZIndex);
+
+                if (interfaceType.IsAssignableFrom(type))
+                {
+                    zIndexList.Add(item);
+                }
+            }
+
+            return zIndexList;
+
         }
 
         public List<IGraphicalModel> GetAllObjectsWithoutZIndex()

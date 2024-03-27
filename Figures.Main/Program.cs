@@ -1,4 +1,5 @@
 ﻿using Figures.Models.Contracts.Figures;
+using Figures.Models.Contracts.Helper.Shapes;
 using Figures.Models.Enums;
 using Figures.Models.Models.Figures;
 using Figures.Models.Models.HelperModels.Shapes;
@@ -87,7 +88,6 @@ namespace MyApp
             GUIItems items = new GUIItems(models);
 
             items.DrawAll();
-
 
         }
     }
