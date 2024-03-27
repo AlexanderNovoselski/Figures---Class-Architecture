@@ -1,5 +1,6 @@
 ﻿using Figures.Models.Contracts.Figures;
 using Figures.Models.Contracts.Helper.Shapes;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Figures.Models.Models.Figures
 {
@@ -38,14 +39,33 @@ namespace Figures.Models.Models.Figures
 
         public List<IGraphicalModel> GetAllObjectsWithoutZIndex()
         {
-            return AllObjects.Where(x => !(x is IHasZIndex)).ToList();
+            var noZIndexList = new List<IGraphicalModel>();
+            foreach (var item in AllObjects)
+            {
+                var type = item.GetType();
+                var interfaceType = typeof(IHasZIndex);
+
+                if (!interfaceType.IsAssignableFrom(type))
+                {
+                    noZIndexList.Add(item);
+                }
+            }
+
+            return noZIndexList;
         }
 
         public void AddObjectToList(IGraphicalModel graphicalModel)
         {
             try
             {
-                AllObjects.Add(graphicalModel);
+                var type = graphicalModel.GetType();
+                var interfaceType = typeof(IGraphicalModel);
+
+                if (interfaceType.IsAssignableFrom(type))
+                {
+                    AllObjects.Add(graphicalModel);
+
+                }
             }
             catch (Exception e)
             {
