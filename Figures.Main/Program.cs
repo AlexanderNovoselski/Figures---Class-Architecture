@@ -34,7 +34,7 @@ namespace MyApp
             Console.WriteLine(roundedRectangle.RadiusModel.RadiusType);
             Console.WriteLine(roundedRectangle.Color.ColorName);
 
-            roundedRectangle.Color.SetColor("black");
+            roundedRectangle.Color.ColorName = "black";
 
             Console.WriteLine(roundedRectangle.Color.ColorName);
 
@@ -83,9 +83,11 @@ namespace MyApp
             };
             IDrawingModel models = new DrawingModels(initialModels);
             models.AddObjectToList(text);
+
             GUIItems items = new GUIItems(models);
 
             items.DrawAll();
+
 
         }
     }

@@ -21,7 +21,7 @@ namespace Figures.Models.Models.Figures
 
         public ZIndexModel ZIndex { get; }
 
-        public ColorModel Color { get; }
+        public ColorModel Color { get;}
             
         public override void Draw()
         {

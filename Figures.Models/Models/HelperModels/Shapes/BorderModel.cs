@@ -16,19 +16,12 @@ namespace Figures.Models.Models.HelperModels.Shapes
             _lineHeight = lineHeight;
             _lineType = lineType;
         }
-        public LineType LineType => _lineType;
-        public int LineHeight => _lineHeight;
 
-        public void SetLineHeight(int lineHeight)
-        {
-            // Validations
-            _lineHeight = lineHeight;
-        }
 
-        public void SetLineType(LineType lineType)
-        {
-            // Validations
-            _lineType = lineType;
-        }
+
+        public LineType LineType { get { return _lineType; } set { _lineType = value; } }
+        public int LineHeight { get { return _lineHeight; } set { _lineHeight = value; } }
+
+
     }
 }

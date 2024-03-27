@@ -13,11 +13,8 @@
             _zIndex = zIndex;
         }
 
-        public int ZIndex => _zIndex;
+        public int ZIndex { get { return _zIndex; } set { _zIndex = value; } }
 
-        public void SetZIndex(int zIndex)
-        {
-            _zIndex = zIndex;
-        }
+
     }
 }

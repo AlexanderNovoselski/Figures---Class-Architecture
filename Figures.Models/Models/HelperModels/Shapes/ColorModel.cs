@@ -15,13 +15,7 @@
             _color = color;
         }
 
-        public string ColorName => _color;
-
-        public void SetColor(string color)
-        {
-            // Validations
-            _color = color;
-        }
+        public string ColorName { get { return _color; } set { _color = value; } }
 
 
     }

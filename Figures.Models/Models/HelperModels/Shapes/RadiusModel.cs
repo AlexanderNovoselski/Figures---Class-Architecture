@@ -11,11 +11,8 @@ namespace Figures.Models.Models.HelperModels.Shapes
             _radiusType = radiusType;
 
         }
-        public RadiusType RadiusType => _radiusType;
+        public RadiusType RadiusType { get { return _radiusType; } set { _radiusType = value; } }
 
-        public void SetRadiusType(RadiusType radiusType)
-        {
-            _radiusType = radiusType;
-        }
+
     }
 }

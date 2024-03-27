@@ -1,4 +1,6 @@
-﻿namespace Figures.Models.Models.HelperModels.Shapes
+﻿using System.Drawing;
+
+namespace Figures.Models.Models.HelperModels.Shapes
 {
     public class PointModel
     {
@@ -14,29 +16,10 @@
             _x = x;
             _y = y;
         }
-        public int X => _x;
-        public int Y => _y; 
+        public int X { get { return _x; } set { _x = value; } }
+        public int Y { get { return _y; } set { _y = value; } }
 
-        public void SetPoint(int x, int y)
-        {
-            // Validations
-            if(x < 0)
-            {
-                _x = 0;
-            }
-            else
-            {
-                _x = x;
-            }
-            if(y < 0)
-            {
-                _y = 0;
-            }
-            else
-            {
-                _y = y;
-            }
-        }
+
     }
 
 }

@@ -14,17 +14,19 @@ namespace Figures.Models.Models.Figures
         public void DrawAll()
         {
             var objectsWithZIndex = model.GetAllObjectsWithZIndex();
+
             var objectsWithoutZIndex = model.GetAllObjectsWithoutZIndex();
 
             var firstThird = objectsWithoutZIndex.ToList().Count / 3;
             var firstThirdList = objectsWithoutZIndex.Take(firstThird).ToList();
 
+            // Draw first third of the objects without zIndex
             DrawObjects(firstThirdList);
 
             // Draw ZIndex objects from lower to higher index
             DrawObjects(OrderByAscending(objectsWithZIndex));
 
-            // Draw the rest of the non zIndex objects
+            // Draw the rest 2 thirds of the non zIndex objects
             var restObjects = objectsWithoutZIndex.Skip(firstThird).ToList();
 
             DrawObjects(restObjects);
@@ -49,10 +51,10 @@ namespace Figures.Models.Models.Figures
 
                 foreach (var graphicalModel in copyList)
                 {
-                    var currentIndex = (graphicalModel as IHasZIndex)?.ZIndex.ZIndex;
+                    var currentZIndexValue = (graphicalModel as IHasZIndex)?.ZIndex.ZIndex;
                     var lowestIndex = (lowestZIndexModel as IHasZIndex)?.ZIndex.ZIndex;
 
-                    if (currentIndex < lowestIndex)
+                    if (currentZIndexValue < lowestIndex)
                     {
                         lowestZIndexModel = graphicalModel;
                     }

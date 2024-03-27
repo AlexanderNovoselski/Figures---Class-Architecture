@@ -1,4 +1,6 @@
-﻿namespace Figures.Models.Models.HelperModels.Shapes
+﻿using Figures.Models.Enums;
+
+namespace Figures.Models.Models.HelperModels.Shapes
 {
     public class SizeModel
     {
@@ -14,28 +16,8 @@
             _width = width;
             _height = height;
         }
-        public int Width => _width;
-        public int Height => _height;
-        public void SetSize(int width, int height)
-        {
-            // Validations
-            if (width < 0)
-            {
-                _width = 1;
-            }
-            else
-            {
-                _width = width;
-            }
-
-            if (height < 0)
-            {
-                _height = 1;
-            }
-            else
-            {
-                _height = height;
-            }
-        }
+        public int Width { get { return _width; } set { _width = value; } }
+        public int Height { get { return _height; } set { _height = value; } }
+     
     }
 }

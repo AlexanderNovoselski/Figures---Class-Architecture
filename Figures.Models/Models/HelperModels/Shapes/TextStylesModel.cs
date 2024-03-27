@@ -15,18 +15,10 @@
             _fontSize = fontSize;
         }
 
-        public string FontName => _fontName;
-        public int FontSize => _fontSize;
+        public string FontName { get { return _fontName; } set { _fontName = value; } }
+        public int FontSize { get { return _fontSize; } set { _fontSize = value; } }
 
-        public void SetFontName(string fontName)
-        {
-            _fontName = fontName;
-        }
-
-        public void SetFontSize(int fontSize)
-        {
-            _fontSize = fontSize;
-        }
+   
 
     }
 }
